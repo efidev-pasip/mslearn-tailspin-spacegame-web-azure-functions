@@ -104,10 +104,11 @@ stages:
               azureSubscription: '$(svcConn)'
               appName: $(WebAppName)
               resourceGroupName: $(ResourceGroupName)
+              # Original: "AppSettings:LeaderboardFunctionUrl" does not work, ':' should be replaced by '__'
               appSettings: |
                 [
                   {
-                    "name": "AppSettings:LeaderboardFunctionUrl",
+                    "name": "AppSettings__LeaderboardFunctionUrl",
                     "value": "http://$(LeaderboardAppName).azurewebsites.net/api/LeaderboardFunction",
                     "slotSetting": false
                   }
